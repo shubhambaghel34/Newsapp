@@ -1,8 +1,8 @@
 # Prerequisite
-1.Open [https://newsapi.org/](https://newsapi.org/) to view it in the browser.
-2.Generate your own newsapp  API key/token to use different news based api in react application.
-3.Check place where token/apikey is used and integrate it.
-3.Install node modules using `npm install`
+Open [https://newsapi.org/](https://newsapi.org/) to view it in the browser.
+Generate your own newsapp  API key/token to use different news based api in react application.
+Check place where token/apikey is used and integrate it.
+Install node modules using `npm install`
 
 ## Available Scripts
 
