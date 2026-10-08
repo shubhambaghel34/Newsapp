@@ -73,6 +73,37 @@
   text-transform: uppercase;
 }
 
+.country-picker {
+  display: grid;
+  gap: 4px;
+  min-width: 145px;
+}
+
+.country-picker__label {
+  color: #aeb5bf;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.country-picker__select {
+  width: 100%;
+  min-height: 34px;
+  padding: 5px 30px 5px 10px;
+  border: 1px solid #565a62;
+  border-radius: 4px;
+  background-color: #2d3035;
+  color: #ffffff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.country-picker__select:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 2px;
+}
+
 .category-nav {
   border-top: 1px solid #35383d;
 }
@@ -90,6 +121,78 @@
 
 .category-nav__inner::-webkit-scrollbar {
   display: none;
+}
+
+.category-nav__link {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  color: #c3c8d0;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.category-nav__link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 160ms ease;
+}
+
+.category-nav__link:hover,
+.category-nav__link--active {
+  color: #ffffff;
+}
+
+.category-nav__link--active::after {
+  transform: scaleX(1);
+}
+
+.news-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 0 25px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--line);
+}
+
+.news-heading__eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--accent-deep);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.news-heading h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.news-heading__edition {
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
 }
 
 .category-nav__link {
@@ -228,6 +331,18 @@
     font-size: 11px;
   }
 
+  .country-picker {
+    min-width: 115px;
+  }
+
+  .country-picker__label {
+    font-size: 9px;
+  }
+
+  .country-picker__select {
+    min-height: 32px;
+    padding-left: 7px;
+    font-size: 11px;
   .site-header__edition {
     display: none;
   }
