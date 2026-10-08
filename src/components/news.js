@@ -108,7 +108,7 @@ const News = (props) => {
 };
 
 News.defaultProps = {
-  country: "in",
+  country: "us",
   category: "general"
 };
 
