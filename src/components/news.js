@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import configdetails from "../config/config";
 import Spinner from "../spinner/Spinner";
 import NewsItem from "./newsitem";
-import configDetais from "../config/config";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const News = (props) => {
@@ -18,7 +17,7 @@ const News = (props) => {
 
   const getApidetails = async () => {
     props.setProgress(10);
-    let API_URL = `${configdetails.URL}?country=${props.country}&category=${props.category}&apiKey=${configDetais.API_KEY}&page=${page}&pagesize=${props.pagesize}`;
+    let API_URL = `${configdetails.URL}?country=${props.country}&category=${props.category}&page=${page}&pageSize=${props.pagesize}`;
     setsLoading(true);
     let data = await fetch(API_URL);
     props.setProgress(10);
@@ -49,9 +48,7 @@ const News = (props) => {
     setPage(page + 1);
     let API_URL = `${configdetails.URL}?country=${props.country}&category=${
       props.category
-    }&apiKey=${configDetais.API_KEY}&page=${page + 1}&pagesize=${
-      props.pagesize
-    }`;
+    }&page=${page + 1}&pageSize=${props.pagesize}`;
     setPage(page + 1);
     let data = await fetch(API_URL);
     let parsedata = await data.json();

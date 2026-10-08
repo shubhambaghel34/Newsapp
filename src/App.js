@@ -13,14 +13,14 @@ function App() {
         <LoadingBar color="#f11946" progress={progress} height="2" />
         <Navbar />
 
-        {/* <News setProgress={setProgress} pagesize={5} country="in" category="science"/> */}
+        {/* <News setProgress={setProgress} pagesize={5} country="us" category="science"/> */}
         <Switch>
           <Route exact path="/">
             <News
               setProgress={setProgress}
               key="general"
               pagesize={5}
-              country="in"
+              country="us"
               category="general"
             />
           </Route>
@@ -29,7 +29,7 @@ function App() {
               setProgress={setProgress}
               key="business"
               pagesize={5}
-              country="in"
+              country="us"
               category="business"
             />
           </Route>
@@ -39,7 +39,7 @@ function App() {
               setProgress={setProgress}
               key="science"
               pagesize={5}
-              country="in"
+              country="us"
               category="science"
             />
           </Route>
@@ -48,7 +48,7 @@ function App() {
               setProgress={setProgress}
               key="technology"
               pagesize={5}
-              country="in"
+              country="us"
               category="technology"
             />
           </Route>
@@ -58,7 +58,7 @@ function App() {
               setProgress={setProgress}
               key="entertainment"
               pagesize={5}
-              country="in"
+              country="us"
               category="entertainment"
             />
           </Route>
@@ -67,7 +67,7 @@ function App() {
               setProgress={setProgress}
               key="health"
               pagesize={5}
-              country="in"
+              country="us"
               category="health"
             />
           </Route>
@@ -76,7 +76,7 @@ function App() {
               setProgress={setProgress}
               key="sports"
               pagesize={5}
-              country="in"
+              country="us"
               category="sports"
             />
           </Route>
