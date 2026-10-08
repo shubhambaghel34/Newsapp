@@ -31,7 +31,7 @@ const News = (props) => {
   }, [category, country, pagesize, setProgress]);
 
   useEffect(() => {
-    document.title = `${capitalizeFirstLetter(category)}`;
+    document.title = `Briefly | ${capitalizeFirstLetter(category)} headlines`;
     getApidetails();
   }, [getApidetails, category]);
 
@@ -60,31 +60,31 @@ const News = (props) => {
 
   return (
     <>
-      <h1
-        className="text-center"
-        style={{ margin: "35px 0px", marginTop: "90px" }}
-      >
-        Top Headlines-{capitalizeFirstLetter(props.category)}
-      </h1>
+      <main className="news-page">
+        <div className="news-heading">
+          <div>
+            <span className="news-heading__eyebrow">The latest, in brief</span>
+            <h1>{capitalizeFirstLetter(category)} headlines</h1>
+          </div>
+          <span className="news-heading__edition">United States · Today</span>
+        </div>
 
-      {loading && <Spinner />}
-      <InfiniteScroll
-        dataLength={articles.length}
-        next={fetchMoreData}
-        hasMore={articles.length !== totalresult}
-        loader={<Spinner />}
-        scrollableTarget="scrollableDiv"
-      >
-        <div className="container">
-          <div className="row">
+        {loading && <Spinner />}
+        <InfiniteScroll
+          dataLength={articles.length}
+          next={fetchMoreData}
+          hasMore={articles.length !== totalresult}
+          loader={<Spinner />}
+        >
+          <div className="article-grid">
             {articles.map((element) => {
               return (
-                <div className="col-md-4" key={element.url}>
+                <div className="article-grid__item" key={element.url}>
                   <NewsItem
                     title={element.title ? element.title : ""}
                     description={
                       element.description
-                        ? element.description.slice(0, 88)
+                        ? element.description
                         : ""
                     }
                     imgurl={
@@ -101,8 +101,8 @@ const News = (props) => {
               );
             })}
           </div>
-        </div>
-      </InfiniteScroll>
+        </InfiniteScroll>
+      </main>
     </>
   );
 };
