@@ -1,12 +1,5 @@
-const NEWS_API_URL = "https://newsapi.org/v2/top-headlines";
-const allowedParameters = [
-  "country",
-  "category",
-  "sources",
-  "q",
-  "pageSize",
-  "page"
-];
+const NEWS_API_URL = "https://newsapi.org/v2/top-headlines/sources";
+const allowedParameters = ["category", "language", "country"];
 
 module.exports = async (req, res) => {
   if (req.method !== "GET") {
@@ -17,12 +10,6 @@ module.exports = async (req, res) => {
   const apiKey = process.env.NEWS_API_KEY;
   if (!apiKey) {
     return res.status(500).json({ message: "NEWS_API_KEY is not configured" });
-  }
-
-  if (req.query.sources && (req.query.country || req.query.category)) {
-    return res.status(400).json({
-      message: "sources cannot be combined with country or category"
-    });
   }
 
   const url = new URL(NEWS_API_URL);
