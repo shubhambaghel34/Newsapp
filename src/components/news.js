@@ -70,6 +70,7 @@ const News = (props) => {
           <span className="news-heading__edition">
             {new Intl.DisplayNames(["en"], { type: "region" }).of(country.toUpperCase())} edition
           </span>
+          <span className="news-heading__edition">United States · Today</span>
         </div>
 
         {loading && <Spinner />}

@@ -21,6 +21,8 @@ const countryOptions = countryCodes
   .sort((first, second) => first.name.localeCompare(second.name));
 
 const Navbar = ({ country, onCountryChange }) => {
+
+const Navbar = () => {
   return (
     <header className="site-header">
       <div className="site-header__masthead">
@@ -47,6 +49,7 @@ const Navbar = ({ country, onCountryChange }) => {
             ))}
           </select>
         </div>
+        <span className="site-header__edition">Independent headlines</span>
       </div>
       <nav className="category-nav" aria-label="News categories">
         <div className="category-nav__inner">
