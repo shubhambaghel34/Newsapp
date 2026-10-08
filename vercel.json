@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/business",
+      "destination": "/"
+    },
+    {
+      "source": "/science",
+      "destination": "/"
+    },
+    {
+      "source": "/technology",
+      "destination": "/"
+    },
+    {
+      "source": "/entertainment",
+      "destination": "/"
+    },
+    {
+      "source": "/health",
+      "destination": "/"
+    },
+    {
+      "source": "/sports",
+      "destination": "/"
+    }
+  ]
+}
