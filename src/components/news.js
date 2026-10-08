@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import configdetails from "../config/config";
 import Spinner from "../spinner/Spinner";
@@ -6,6 +6,7 @@ import NewsItem from "./newsitem";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const News = (props) => {
+  const { category, country, pagesize, setProgress } = props;
   const [articles, setArticles] = useState([]);
   const [loading, setsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -15,24 +16,24 @@ const News = (props) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  const getApidetails = async () => {
-    props.setProgress(10);
-    let API_URL = `${configdetails.URL}?country=${props.country}&category=${props.category}&page=${page}&pageSize=${props.pagesize}`;
+  const getApidetails = useCallback(async () => {
+    setProgress(10);
+    let API_URL = `${configdetails.URL}?country=${country}&category=${category}&page=1&pageSize=${pagesize}`;
     setsLoading(true);
     let data = await fetch(API_URL);
-    props.setProgress(10);
+    setProgress(10);
     let parsedata = await data.json();
-    props.setProgress(70);
+    setProgress(70);
     setArticles(parsedata.articles);
     setTotalresults(parsedata.totalResults);
     setsLoading(false);
-    props.setProgress(100);
-  };
+    setProgress(100);
+  }, [category, country, pagesize, setProgress]);
 
   useEffect(() => {
-    document.title = `${capitalizeFirstLetter(props.category)}`;
+    document.title = `${capitalizeFirstLetter(category)}`;
     getApidetails();
-  }, []);
+  }, [getApidetails, category]);
 
   //   const onhandleNextClick = () => {
   //     setPage(page + 1);
