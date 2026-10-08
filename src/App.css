@@ -73,6 +73,37 @@
   text-transform: uppercase;
 }
 
+.country-picker {
+  display: grid;
+  gap: 4px;
+  min-width: 145px;
+}
+
+.country-picker__label {
+  color: #aeb5bf;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.country-picker__select {
+  width: 100%;
+  min-height: 34px;
+  padding: 5px 30px 5px 10px;
+  border: 1px solid #565a62;
+  border-radius: 4px;
+  background-color: #2d3035;
+  color: #ffffff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.country-picker__select:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 2px;
+}
+
 .category-nav {
   border-top: 1px solid #35383d;
 }
@@ -228,8 +259,18 @@
     font-size: 11px;
   }
 
-  .site-header__edition {
-    display: none;
+  .country-picker {
+    min-width: 115px;
+  }
+
+  .country-picker__label {
+    font-size: 9px;
+  }
+
+  .country-picker__select {
+    min-height: 32px;
+    padding-left: 7px;
+    font-size: 11px;
   }
 
   .category-nav__inner {

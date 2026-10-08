@@ -32,6 +32,7 @@ const News = (props) => {
 
   useEffect(() => {
     document.title = `Briefly | ${capitalizeFirstLetter(category)} headlines`;
+    setPage(1);
     getApidetails();
   }, [getApidetails, category]);
 
@@ -66,7 +67,9 @@ const News = (props) => {
             <span className="news-heading__eyebrow">The latest, in brief</span>
             <h1>{capitalizeFirstLetter(category)} headlines</h1>
           </div>
-          <span className="news-heading__edition">United States · Today</span>
+          <span className="news-heading__edition">
+            {new Intl.DisplayNames(["en"], { type: "region" }).of(country.toUpperCase())} edition
+          </span>
         </div>
 
         {loading && <Spinner />}

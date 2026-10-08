@@ -7,11 +7,12 @@ import "./App.css";
 
 function App() {
   const [progress, setProgress] = useState(0);
+  const [country, setCountry] = useState("us");
   return (
     <div>
       <Router>
         <LoadingBar color="#f11946" progress={progress} height="2" />
-        <Navbar />
+        <Navbar country={country} onCountryChange={setCountry} />
 
         {/* <News setProgress={setProgress} pagesize={5} country="us" category="science"/> */}
         <Switch>
@@ -20,7 +21,7 @@ function App() {
               setProgress={setProgress}
               key="general"
               pagesize={5}
-              country="us"
+              country={country}
               category="general"
             />
           </Route>
@@ -29,7 +30,7 @@ function App() {
               setProgress={setProgress}
               key="business"
               pagesize={5}
-              country="us"
+              country={country}
               category="business"
             />
           </Route>
@@ -39,7 +40,7 @@ function App() {
               setProgress={setProgress}
               key="science"
               pagesize={5}
-              country="us"
+              country={country}
               category="science"
             />
           </Route>
@@ -48,7 +49,7 @@ function App() {
               setProgress={setProgress}
               key="technology"
               pagesize={5}
-              country="us"
+              country={country}
               category="technology"
             />
           </Route>
@@ -58,7 +59,7 @@ function App() {
               setProgress={setProgress}
               key="entertainment"
               pagesize={5}
-              country="us"
+              country={country}
               category="entertainment"
             />
           </Route>
@@ -67,7 +68,7 @@ function App() {
               setProgress={setProgress}
               key="health"
               pagesize={5}
-              country="us"
+              country={country}
               category="health"
             />
           </Route>
@@ -76,7 +77,7 @@ function App() {
               setProgress={setProgress}
               key="sports"
               pagesize={5}
-              country="us"
+              country={country}
               category="sports"
             />
           </Route>
